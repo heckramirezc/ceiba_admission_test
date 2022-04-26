@@ -22,6 +22,7 @@ class UsersRouter: UsersRouterable {
         
         interactor.presenter = presenter
         interactor.api = APIRepository()
+        interactor.db = DBRepository()
         
         presenter.router = router
         presenter.view = view

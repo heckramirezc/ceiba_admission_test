@@ -6,12 +6,23 @@
 //
 
 import Foundation
+import RealmSwift
 
 class PostsInteractor: PostsInteractorable {
     var presenter: PostsPresenterable?
     var api: API?
+    var db: DB? {
+        didSet {
+            db?.realm = try! Realm()
+        }
+    }
     
     func getPosts(id: Int) {
+        let posts = db?.getPosts(id: id)
+        (posts!.count > 0) ? self.presenter?.onSuccess(entities: posts!) : getPostsAPI(id: id)
+    }
+    
+    private func getPostsAPI(id: Int) {
         api?.getUsers(endpoint: EndpointCases.getPosts(userId: id), completion: {result, error  in
             if error != nil {
                 self.presenter?.onError(error: Properties.Messages.APIError)

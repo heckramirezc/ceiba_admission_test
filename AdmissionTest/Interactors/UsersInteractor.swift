@@ -6,13 +6,24 @@
 //
 
 import Foundation
+import RealmSwift
 
 class UsersInteractor: UsersInteractorable {
     var presenter: UsersPresenterable?
     var api: API?
+    var db: DB? {
+        didSet {
+            db?.realm = try! Realm()
+        }
+    }
     
-    func getUsers(){
-        api?.getUsers(endpoint: EndpointCases.getUsers, completion: {result, error  in
+    func getUsers() {
+        let users = db?.getUsers()
+        (users!.count > 0) ? self.presenter?.onSuccess(entities: users!) : getUserAPI()
+    }
+    
+    private func getUserAPI(){
+        api?.getUsers(endpoint: EndpointCases.getUsers, completion: { [self]result, error  in
             if error != nil {
                 self.presenter?.onError(error: Properties.Messages.APIError)
                 return
@@ -26,6 +37,7 @@ class UsersInteractor: UsersInteractorable {
                             self.presenter?.onError(error: Properties.Messages.APIError)
                             return;
                         }
+                        self.db?.setUsers(users: users)
                         self.presenter?.onSuccess(entities: users)
                     } catch {
                         self.presenter?.onError(error: Properties.Messages.APIError)

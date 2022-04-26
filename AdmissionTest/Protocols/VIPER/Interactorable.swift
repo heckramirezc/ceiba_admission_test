@@ -9,4 +9,5 @@ import Foundation
 
 protocol Interactorable {
     var api: API? { get set }
+    var db: DB? { get set }
 }
