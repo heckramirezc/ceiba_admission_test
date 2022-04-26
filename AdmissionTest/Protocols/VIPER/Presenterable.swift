@@ -8,7 +8,5 @@
 import Foundation
 
 protocol Presenterable {
-    var interactor: Interactorable? { get set }
     var router: Routerable? { get set }
-    var view: Viewable? { get set }
 }

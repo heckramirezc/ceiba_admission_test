@@ -8,5 +8,5 @@
 import Foundation
 
 protocol Interactorable {
-    var presenter: Presenterable? { get set }
+    var api: API? { get set }
 }

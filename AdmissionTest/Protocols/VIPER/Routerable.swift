@@ -8,12 +8,10 @@
 import Foundation
 import UIKit
 
-typealias ViewEntry = Viewable & UIViewController
+typealias ViewableEntry = Viewable & UIViewController
 
 protocol Routerable {
-    var view: ViewEntry! { get }
-
-    static func start() -> Routerable
+    var view: ViewableEntry! { get }
     
     func dismiss(animated: Bool)
     func dismiss(animated: Bool, completion: @escaping (() -> Void))

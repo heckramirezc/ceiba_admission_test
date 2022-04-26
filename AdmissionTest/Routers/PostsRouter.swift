@@ -7,25 +7,26 @@
 
 import Foundation
 
-class PostsRouter: Routerable {
-    private(set) weak var view: ViewEntry!
+class PostsRouter: PostsRouterable {
+    private(set) weak var view: ViewPostsEntry!
 
-    static func start() -> Routerable {
+    static func start() -> PostsRouterable {
         let router = PostsRouter()
         
-        let view = PostsViewController()
-        let presenter = PostsPresenter()
-        let interactor = PostsInteractor()
+        let view: PostsViewable = PostsViewController()
+        var presenter: PostsPresenterable = PostsPresenter()
+        var interactor: PostsInteractorable = PostsInteractor()
         
         view.presenter = presenter
         
         interactor.presenter = presenter
-        
+        interactor.api = APIRepository()
+                
         presenter.router = router
         presenter.view = view
         presenter.interactor = interactor
         
-        router.view = view
+        router.view = view as? ViewPostsEntry
         return router
     }
 }

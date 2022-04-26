@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class UsersViewController: UIViewController, Viewable {
-    var presenter: Presenterable?
+class UsersViewController: UIViewController, UsersViewable {
+    var presenter: UsersPresenterable?
     
     override func viewDidLoad() {
         super.viewDidLoad()

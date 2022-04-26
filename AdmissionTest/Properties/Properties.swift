@@ -6,24 +6,37 @@
 //
 
 import Foundation
+import Alamofire
 
 struct Properties
 {
-    static var isDebug: Bool = true
+    static var isDebug: Bool = false
 
     private struct Versions {
         static let AdmissionTest = "1.0.0"
     }
+    
+    struct Messages {
+        static let APIError = "Wrong Request"
+    }
 }
 
 enum EndpointCases: Endpoint {
+
     case getUsers
     case getPosts(userId: Int)
     
-    var httpMethod: String {
+    var httpMethod: HTTPMethod {
         switch self {
             default:
-                return "GET"
+            return HTTPMethod.get
+        }
+    }
+    
+    var encoding: ParameterEncoding {
+        switch self {
+            default:
+            return JSONEncoding.default
         }
     }
     
@@ -39,11 +52,11 @@ enum EndpointCases: Endpoint {
             case .getUsers:
                 return "/users"
             case .getPosts(let userId):
-                return userId != 0 ? "/posts/\(userId)" : "/posts"
+                return userId != 0 ? "/posts/?userId=\(userId)" : "/posts"
         }
     }
     
-    var headers: [String: Any]? {
+    var headers: HTTPHeaders {
         switch self {
             default:
                 return ["Content-Type": "application/json",

@@ -7,8 +7,20 @@
 
 import Foundation
 
-class PostsPresenter : Presenterable {
-    var interactor: Interactorable?
-    var router: Routerable?
-    var view: Viewable?
+class PostsPresenter: PostsPresenterable {
+    var router: PostsRouterable?
+    var interactor: PostsInteractorable? {
+        didSet {
+            interactor?.getPosts(id: 0)
+        }
+    }
+    var view: PostsViewable?
+
+    func onSuccess(entities: [Post]) {
+        print(entities)
+    }
+    
+    func onError(error: String) {
+        print(error)
+    }
 }

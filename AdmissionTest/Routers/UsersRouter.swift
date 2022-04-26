@@ -8,25 +8,26 @@
 import Foundation
 import UIKit
 
-class UsersRouter: Routerable {
+class UsersRouter: UsersRouterable {
     private(set) weak var view: ViewEntry!
     
-    static func start() -> Routerable {
+    static func start() -> UsersRouterable {
         let router = UsersRouter()
         
-        let view = UsersViewController()
-        let presenter = UsersPresenter()
-        let interactor = UsersInteractor()
+        let view: UsersViewable = UsersViewController()
+        var presenter: UsersPresenterable = UsersPresenter()
+        var interactor: UsersInteractorable = UsersInteractor()
         
         view.presenter = presenter
         
         interactor.presenter = presenter
+        interactor.api = APIRepository()
         
         presenter.router = router
         presenter.view = view
         presenter.interactor = interactor
         
-        router.view = view
+        router.view = view as? ViewEntry
         return router
     }
 }

@@ -9,8 +9,6 @@ import Foundation
 import UIKit
 
 protocol Viewable: AnyObject {
-    var presenter: Presenterable? { get set }
-    
     func push(_ vc: UIViewController, animated: Bool)
     func present(_ vc: UIViewController, animated: Bool)
     func pop(animated: Bool)
