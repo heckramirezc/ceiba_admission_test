@@ -7,6 +7,7 @@ target 'AdmissionTest' do
 
   # Pods for AdmissionTest
   pod 'Alamofire'
+  pod 'RealmSwift'
 
   target 'AdmissionTestTests' do
     inherit! :search_paths
