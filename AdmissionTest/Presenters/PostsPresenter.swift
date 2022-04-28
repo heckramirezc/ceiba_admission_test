@@ -17,10 +17,8 @@ class PostsPresenter: PostsPresenterable {
     var view: PostsViewable?
 
     func onSuccess(entities: [Post]) {
-        print(entities)
     }
     
     func onError(error: String) {
-        print(error)
     }
 }

@@ -18,8 +18,10 @@ class UsersInteractor: UsersInteractorable {
     }
     
     func getUsers() {
-        let users = db?.getUsers()
-        (users!.count > 0) ? self.presenter?.onSuccess(entities: users!) : getUserAPI()
+        DispatchQueue.main.async { [weak self] in
+            let users = self!.db?.getUsers()
+            (users!.count > 0) ? self!.presenter?.onSuccess(entities: users!) : self!.getUserAPI()
+        }
     }
     
     func getLocalPosts(id: Int) -> [Post] {
@@ -49,7 +51,9 @@ class UsersInteractor: UsersInteractorable {
                             self.presenter?.onError(error: Properties.Messages.APIError)
                             return;
                         }
-                        self.db?.setUsers(users: users)
+                        DispatchQueue.main.async { [weak self] in
+                            self!.db?.setUsers(users: users)
+                        }
                         self.presenter?.onSuccess(entities: users)
                     } catch {
                         self.presenter?.onError(error: Properties.Messages.APIError)

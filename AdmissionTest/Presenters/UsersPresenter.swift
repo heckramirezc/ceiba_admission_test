@@ -8,6 +8,8 @@
 import Foundation
 
 class UsersPresenter: UsersPresenterable {
+    var users: [User]?
+    
     var router: UsersRouterable?
     var interactor: UsersInteractorable? {
         didSet {
@@ -15,11 +17,10 @@ class UsersPresenter: UsersPresenterable {
         }
     }
     var view: UsersViewable?
-    var users: [User] = []
     
     func asignPosts() async {
         var items: [[FeedItem]] = []
-        let entities: [User] = try! await self.users.parallelMap(parallelism: 4) { u in
+        let entities: [User] = try! await self.users!.parallelMap(parallelism: 4) { u in
             var user = u
             user.avatar = Int.random(in: 1..<6)
             if (u.posts == nil || u.posts?.count == 0) {
@@ -47,9 +48,9 @@ class UsersPresenter: UsersPresenterable {
     
     func onSuccess(entities: [User]) {
         self.users = entities
-        for (index, _) in self.users.enumerated() {
-            let posts = interactor!.getLocalPosts(id: self.users[index].id!)
-            self.users[index].posts = posts
+        for (index, _) in self.users!.enumerated() {
+            let posts = interactor!.getLocalPosts(id: self.users![index].id!)
+            self.users![index].posts = posts
         }
         Task {
             await self.asignPosts()
