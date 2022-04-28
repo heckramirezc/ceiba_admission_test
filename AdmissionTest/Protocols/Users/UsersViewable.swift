@@ -9,4 +9,7 @@ import Foundation
 
 protocol UsersViewable: Viewable {
     var presenter: UsersPresenterable? { get set }
+    func reloadCollection()
+    func setData(items: [[FeedItem]])
+    func updateEntity(users: [User])
 }

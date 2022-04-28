@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PostCollectionViewCell" id="Wzh-3Y-mE0" customClass="PostCollectionViewCell" customModule="AdmissionTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="302" height="85"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="302" height="85"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-PY-r35">
+                        <rect key="frame" x="13" y="8" width="30" height="30"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Kgb-al-80r">
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZyB-0t-Faf"/>
+                                    <constraint firstAttribute="width" constant="30" id="m7C-8t-P4O"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Kgb-al-80r" firstAttribute="top" secondItem="a4T-PY-r35" secondAttribute="top" id="NgQ-Sk-zvJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Kgb-al-80r" secondAttribute="trailing" id="SX1-Ts-Pmq"/>
+                            <constraint firstAttribute="bottom" secondItem="Kgb-al-80r" secondAttribute="bottom" id="cZ7-xO-0An"/>
+                            <constraint firstItem="Kgb-al-80r" firstAttribute="leading" secondItem="a4T-PY-r35" secondAttribute="leading" id="hPC-cf-PMd"/>
+                            <constraint firstAttribute="width" constant="30" id="ptN-zj-hcS"/>
+                            <constraint firstAttribute="height" constant="30" id="wRF-1f-c11"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgd-mj-9dc" userLabel="Title Label">
+                        <rect key="frame" x="53" y="8" width="219" height="12.5"/>
+                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Dgd-mj-9dc" secondAttribute="trailing" constant="30" id="7AF-wL-C5k"/>
+                <constraint firstItem="Dgd-mj-9dc" firstAttribute="leading" secondItem="a4T-PY-r35" secondAttribute="trailing" constant="10" id="9JQ-g5-JNB"/>
+                <constraint firstItem="a4T-PY-r35" firstAttribute="leading" secondItem="Wzh-3Y-mE0" secondAttribute="leading" constant="13" id="QnM-6s-jmC"/>
+                <constraint firstItem="Dgd-mj-9dc" firstAttribute="top" secondItem="a4T-PY-r35" secondAttribute="top" id="Uai-UY-ovd"/>
+                <constraint firstItem="a4T-PY-r35" firstAttribute="top" secondItem="Wzh-3Y-mE0" secondAttribute="top" constant="8" id="ZMN-Ax-pZi"/>
+            </constraints>
+            <size key="customSize" width="302" height="64"/>
+            <connections>
+                <outlet property="avatar" destination="a4T-PY-r35" id="zxr-Zo-5xZ"/>
+                <outlet property="title" destination="Dgd-mj-9dc" id="c00-7f-MYl"/>
+            </connections>
+            <point key="canvasLocation" x="320.28985507246381" y="156.69642857142856"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="avatar" width="256" height="256"/>
+    </resources>
+</document>

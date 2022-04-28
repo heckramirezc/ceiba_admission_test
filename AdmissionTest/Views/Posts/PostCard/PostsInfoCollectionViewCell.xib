@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="PostsInfoCollectionViewCell" id="9Mu-zN-IMN" customClass="PostsInfoCollectionViewCell" customModule="AdmissionTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZi-3m-hr3">
+                        <rect key="frame" x="25" y="12" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="Ied-0s-xhF"/>
+                            <constraint firstAttribute="height" constant="36" id="X91-7M-eZV"/>
+                        </constraints>
+                        <state key="normal" image="like"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHy-FC-aZb">
+                        <rect key="frame" x="74" y="21.5" width="56.5" height="17.5"/>
+                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbg-HV-nAr">
+                        <rect key="frame" x="212" y="12" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="6ct-Ft-Ap0"/>
+                            <constraint firstAttribute="height" constant="36" id="idQ-y6-bRb"/>
+                        </constraints>
+                        <state key="normal" image="comment"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2a-mW-OiY">
+                        <rect key="frame" x="259" y="12" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="Gdo-4u-MgP"/>
+                            <constraint firstAttribute="width" constant="36" id="mpk-hB-YHA"/>
+                        </constraints>
+                        <state key="normal" image="share"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="OHy-FC-aZb" firstAttribute="leading" secondItem="IZi-3m-hr3" secondAttribute="trailing" constant="13" id="EiU-ES-KCI"/>
+                <constraint firstItem="OHy-FC-aZb" firstAttribute="centerY" secondItem="IZi-3m-hr3" secondAttribute="centerY" id="FAZ-91-Jd8"/>
+                <constraint firstAttribute="trailing" secondItem="U2a-mW-OiY" secondAttribute="trailing" constant="25" id="Z4T-is-3Lp"/>
+                <constraint firstItem="IZi-3m-hr3" firstAttribute="centerY" secondItem="9Mu-zN-IMN" secondAttribute="centerY" id="bw6-UF-tuk"/>
+                <constraint firstItem="IZi-3m-hr3" firstAttribute="leading" secondItem="9Mu-zN-IMN" secondAttribute="leading" constant="25" id="ixV-hC-trW"/>
+                <constraint firstItem="U2a-mW-OiY" firstAttribute="centerY" secondItem="IZi-3m-hr3" secondAttribute="centerY" id="prD-0E-l9g"/>
+                <constraint firstItem="Zbg-HV-nAr" firstAttribute="centerY" secondItem="IZi-3m-hr3" secondAttribute="centerY" id="wB7-IC-j3r"/>
+                <constraint firstItem="U2a-mW-OiY" firstAttribute="leading" secondItem="Zbg-HV-nAr" secondAttribute="trailing" constant="11" id="zao-wq-Jte"/>
+            </constraints>
+            <size key="customSize" width="320" height="76"/>
+            <connections>
+                <outlet property="posts" destination="OHy-FC-aZb" id="QYt-40-DdW"/>
+            </connections>
+            <point key="canvasLocation" x="333.33333333333337" y="147.99107142857142"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="comment" width="16" height="14"/>
+        <image name="like" width="18" height="16"/>
+        <image name="share" width="16" height="14"/>
+    </resources>
+</document>

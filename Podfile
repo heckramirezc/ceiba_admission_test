@@ -8,6 +8,8 @@ target 'AdmissionTest' do
   # Pods for AdmissionTest
   pod 'Alamofire'
   pod 'RealmSwift'
+  pod 'smooth-feed'
+  pod 'lottie-ios'
 
   target 'AdmissionTestTests' do
     inherit! :search_paths

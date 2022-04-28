@@ -16,6 +16,8 @@ struct User: Codable {
     let phone: String?
     let website: String?
     let company: Company?
+    var posts: [Post]?
+    var avatar: Int?
 }
 
 extension User {

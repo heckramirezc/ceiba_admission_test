@@ -1,26 +1,34 @@
 PODS:
   - Alamofire (5.6.1)
+  - lottie-ios (3.3.0)
   - Realm (10.25.1):
     - Realm/Headers (= 10.25.1)
   - Realm/Headers (10.25.1)
   - RealmSwift (10.25.1):
     - Realm (= 10.25.1)
+  - smooth-feed (0.1.0)
 
 DEPENDENCIES:
   - Alamofire
+  - lottie-ios
   - RealmSwift
+  - smooth-feed
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - lottie-ios
     - Realm
     - RealmSwift
+    - smooth-feed
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   Realm: 1a6e9b4f6983711655d8c0bcb6d2d29c3afbb1f3
   RealmSwift: e72669550d27082aa4fad5d176f5076cfe806245
+  smooth-feed: b21cee5669eab80b8113bcc83fb4a14d2e6681ca
 
-PODFILE CHECKSUM: a0300305d4597d443cc46f8eb8080877f14a1195
+PODFILE CHECKSUM: 141562219f29892a6aad970055a5c00b7418f392
 
 COCOAPODS: 1.11.3
